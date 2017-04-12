@@ -268,11 +268,11 @@ class Comment_Model {
 			$this->db->query('UPDATE '.DB_PREFIX."blog SET comnum = comnum + 1 WHERE gid='$blogId'");
 			$CACHE->updateCache(array('sta', 'comment'));
 			doAction('comment_saved', $cid);
-			emDirect(Url::log($blogId).'#'.$cid);
+			myJson(json_encode(array("status"=>"13","url"=>Url::log($blogId))));
 		} else {
 			$CACHE->updateCache('sta');
 			doAction('comment_saved', $cid);
-			emMsg('评论发表成功，请等待管理员审核', Url::log($blogId));
+			myJson(json_encode(array("status"=>"14","url"=>Url::log($blogId))));
 		}
 	}
 
