@@ -920,6 +920,16 @@ EOT;
 }
 
 /**
+ * 显示json信息
+ *
+ * @param array $msg 信息
+ */
+function myJson($msg) {
+	echo $msg;
+	exit;
+}
+
+/**
  * 显示404错误页面
  * 
  */
